@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+/* ------------------General setup------------------ */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+figure {
+  margin: 0;
+}
+
+:root {
+  --burger--color: rgba(255, 255, 255, 0.9);
+  --body--color: #000b42;
+  --logo--color: white;
+}
+
+/* ------------------container setup------------------ */
+.container {
+  display: grid;
+  height: 100vh;
+  grid-template-rows: auto 100vh;
+  grid-template-areas:
+    'menu'
+    'content';
+}
+
+/* ------------------menu setup------------------ */
+.menu {
+  background-color: var(--body--color);
+  display: grid;
+  grid-area: menu;
+  grid-template-columns: 70px auto 70px;
+  justify-items: center;
+  padding: 15px 0;
+}
+
+.hamburger_menu {
+  color: var(--burger--color);
+  font-size: 1.5em;
+}
+
+.logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.logo span {
+  color: var(--logo--color);
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.logo span:nth-of-type(2) {
+  color: rgba(255, 0, 0, 0.733);
+}
+
+/* ------------------content setup------------------ */
+.content {
+  display: grid;
+  grid-area: content;
+  grid-template-rows: auto auto 64px 48px auto auto;
+  grid-template-areas:
+    'hero'
+    'description'
+    'action'
+    'tags'
+    'sugg'
+    'comments';
+  overflow: auto;
+}
+
+/* ------------------playlist setup------------------ */
+.playlist.is_active {
+  transform: translateX(0);
+}
+
+.playlist {
+  display: grid;
+  background-color: var(--body--color);
+  transform: translateX(-100%);
+  padding: 1em;
+  width: 60vh;
+  color: white;
+  transition: all 0.3s ease-in;
+  overflow: auto;
+  height: 100vh;
+}
+
+.playlist_bar {
+  display: none;
+}
+
+.playlist_logo {
+  text-decoration: none;
+}
+
+.playlist_logo span {
+  color: var(--logo--color);
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.playlist_logo span:nth-of-type(2) {
+  color: rgba(255, 0, 0, 0.733);
+}
+
+.playlist_title {
+  font-size: 1.2em;
+  font-weight: normal;
+  margin: 0;
+}
+
+.playlist ol {
+  padding: 1em;
+  margin-left: 0.5em;
+  font-size: 0.7em;
+}
+
+.playlist ol li {
+  padding: 0.5em;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+}
+
+.playlist li:hover {
+  background-color: rgba(182, 185, 202, 0.5);
+}
+
+.playlist li:active {
+  background-color: #ffd600;
+  color: #000;
+}
+
+.friend_playlist {
+  display: grid;
+  cursor: pointer;
+}
+
+.friend_playlist_item {
+  display: grid;
+  grid-template-columns: [img]50px [user]1fr;
+  align-items: center;
+  gap: 20px;
+  padding: 5px 0;
+}
+
+.friend_playlist_item figure {
+  display: contents;
+}
+
+.friend_img img {
+  width: 50px;
+  border-radius: 50%;
+  grid-column: img;
+}
+
+.user_name {
+  color: white;
+  grid-column: user;
+  font-size: 0.8em;
+  font-weight: normal;
+}
