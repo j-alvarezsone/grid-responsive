@@ -14,8 +14,9 @@ figure {
 
 :root {
   --burger--color: rgba(255, 255, 255, 0.9);
-  --body--color: #000b42;
+  --main--color: #000b42;
   --logo--color: white;
+  --icon-title--color: #909090;
 }
 
 /* ------------------container setup------------------ */
@@ -30,7 +31,7 @@ figure {
 
 /* ------------------menu setup------------------ */
 .menu {
-  background-color: var(--body--color);
+  background-color: var(--main--color);
   display: grid;
   grid-area: menu;
   grid-template-columns: 70px auto 70px;
@@ -72,6 +73,7 @@ figure {
     'sugg'
     'comments';
   overflow: auto;
+  scroll-behavior: smooth;
 }
 
 /* ------------------playlist setup------------------ */
@@ -81,14 +83,17 @@ figure {
 
 .playlist {
   display: grid;
-  background-color: var(--body--color);
+  background-color: var(--main--color);
   transform: translateX(-100%);
   padding: 1em;
   width: 60vh;
   color: white;
   transition: all 0.3s ease-in;
   overflow: auto;
+  scroll-behavior: smooth;
   height: 100vh;
+  position: absolute;
+  z-index: 1;
 }
 
 .playlist_bar {
@@ -164,4 +169,253 @@ figure {
   grid-column: user;
   font-size: 0.8em;
   font-weight: normal;
+}
+
+/* ------------------hero setup------------------ */
+.hero {
+  grid-area: hero;
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-top: 56.25%;
+}
+
+.youtube_video {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ------------------video description setup------------------ */
+.video_description {
+  grid-area: description;
+  padding: 0.8em;
+}
+
+.video_title {
+  font-size: 1.2em;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.video_view {
+  color: #6e6d6d;
+}
+
+/* ------------------video actions setup------------------ */
+.video_actions {
+  display: grid;
+  grid-area: action;
+  grid-template-columns: 100px auto 100px;
+  grid-template-areas: 'share add save';
+  align-items: center;
+}
+
+.video_action_link.share {
+  grid-area: share;
+}
+
+.video_action_link {
+  display: grid;
+  text-align: center;
+  align-items: center;
+  text-decoration: none;
+  color: var(--icon-title--color);
+}
+
+.video_action_link:hover {
+  opacity: 0.5;
+}
+
+.video_action_link:active {
+  color: var(--main--color);
+  opacity: 1;
+}
+
+.video_actions span {
+  font-size: 0.8em;
+}
+
+.video_action_button.add {
+  grid-area: add;
+  background: linear-gradient(0.25turn, #d53369, #cbad6d);
+  height: 40px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.video_action_button:hover {
+  background: linear-gradient(0.25turn, #e1eec3, #f05053);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.video_action_link.save {
+  grid-area: save;
+}
+
+/* ------------------video tags setup------------------ */
+.video_tags {
+  display: grid;
+  grid-area: tags;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.9em;
+  padding: 0 10px;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.video_tags_button {
+  color: white;
+  border: none;
+  border-radius: 20px;
+  height: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.video_tags_button:nth-child(1) {
+  background-color: #726a95;
+}
+
+.video_tags_button:nth-child(2) {
+  background-color: #222831;
+}
+
+.video_tags_button:nth-child(3) {
+  background-color: #c70039;
+}
+
+.video_tags_button:nth-child(4) {
+  background-color: #565d47;
+}
+
+.video_tags_button:hover {
+  opacity: 0.7;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.video_tags_button:active {
+  background-color: var(--main--color);
+  color: #fff;
+  opacity: 1;
+}
+
+/* ------------------video suggs setup------------------ */
+.video_suggs {
+  display: grid;
+  grid-area: sugg;
+  grid-template-rows: 60px auto auto;
+  gap: 1.2em;
+}
+
+.video_suggs_title {
+  align-self: center;
+  justify-self: center;
+}
+
+.video_suggs_item {
+  justify-self: center;
+  transition: all 0.3s ease;
+}
+
+.video_suggs_item a {
+  text-decoration: none;
+  color: black;
+}
+
+.video_suggs_item:hover {
+  opacity: 0.7;
+}
+
+.item_img img {
+  height: 150px;
+  width: 280px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.item_title {
+  display: grid;
+  justify-content: center;
+}
+
+/* ------------------video comments setup------------------ */
+.video_comments {
+  display: grid;
+  grid-area: comments;
+  padding: 0 1em;
+}
+
+.video_comments_title {
+  justify-self: center;
+}
+
+.video_new_comments {
+  display: grid;
+  grid-template-columns: 50px 1fr 50px;
+  background-color: #ccc;
+  border-radius: 30px;
+  gap: 1em;
+}
+
+.user_icon img {
+  width: 50px;
+  border-radius: 50%;
+}
+
+.video_new_comments input {
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+
+.video_new_comments a {
+  align-self: center;
+  justify-self: center;
+  text-decoration: none;
+  color: var(--main--color);
+}
+
+.video_new_comments i {
+  cursor: pointer;
+}
+
+.video_comments_items {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  grid-template-rows: 30px 1fr;
+  grid-template-areas:
+    'img user'
+    'img comments';
+  gap: 0.5em;
+}
+
+.user_icons {
+  align-self: center;
+  grid-area: img;
+}
+
+.user_icons img {
+  width: 50px;
+  border-radius: 50%;
+}
+
+.user_name_icon {
+  grid-area: user;
+  padding-left: 10px;
+}
+.user_comments {
+  grid-area: comments;
+  font-size: 0.9em;
+  padding-left: 10px;
 }
