@@ -1,11 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
 
 /* ------------------General setup------------------ */
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 160%;
+}
+
 html,
 body {
   margin: 0;
   padding: 0;
   font-family: 'Open Sans', sans-serif;
+  min-width: 320px;
 }
 
 figure {
@@ -86,7 +95,7 @@ figure {
   background-color: var(--main--color);
   transform: translateX(-100%);
   padding: 1em;
-  width: 60vh;
+  width: 40vh;
   color: white;
   transition: all 0.3s ease-in;
   overflow: auto;
@@ -193,13 +202,12 @@ figure {
 /* ------------------video description setup------------------ */
 .video_description {
   grid-area: description;
-  padding: 0.8em;
+  padding: 0.4em;
 }
 
 .video_title {
   font-size: 1.2em;
-  margin: 0;
-  margin-bottom: 10px;
+  margin: 15px 0;
 }
 
 .video_view {
